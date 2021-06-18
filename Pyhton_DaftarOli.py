@@ -52,13 +52,13 @@ while jwb=="y" or jwb=="Y":
     #Tahap menghitung diskon
     #mendapatkan diskon ketika pembelian bernilai < 200.000 = 5%
     TotalMinimalSebelumppn = 200000 
-    if TotalAwalA < TotalMinimalSebelumppn : 
+    if TotalAwalA <= TotalMinimalSebelumppn : 
         TotalAwalB = TotalAwalA - TotalAwalA*5/100
     else:
         TotalAwalB = TotalAwalA
 
     #TotalBiaya Dengan PPN 1%
-    TotalAkhir = TotalAwalB - TotalAwalB*1/100
+    TotalAkhir = TotalAwalB + TotalAwalB*1/100
 
     #tampilkan Total Biaya
     print(">>>> Total Akhir     = Rp. " + str(TotalAkhir))
