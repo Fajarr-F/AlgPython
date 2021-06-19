@@ -27,7 +27,7 @@ while jwb=="y" or jwb=="Y":
     oli = ['Duration SW20 1L','Castrol Magnatec 1L','Federal Supreme XX 1L','Yamalube 1L',' Shell 1L']
     harga = ['53000','50000','54000','45000','46000']
 
-    pilihan = input(">> Masukkan Kode Oli = ")
+    pilihan = input(">> Masukkan Kode Oli         = ")
     #identifikasi Indeks list berdasarkan pilihan
     if pilihan=="a" or pilihan=="A" :
         idx = 0
@@ -41,27 +41,36 @@ while jwb=="y" or jwb=="Y":
         idx = 4
     else:
         idx =0
-    print(">>> Pilihan Oli      = " + oli[idx])
-    print(">>> Harga            = Rp. " + str(harga[idx]))
+    print(">>> Pilihan Oli              = " + oli[idx])
+    print(">>> Harga                    = Rp. " + str(harga[idx]))
 
     #tahap hitung biaya
-    n = input("Masukkan Banyaknya oli yang akan dibeli = ")
+    n = input(">> Masukkan Banyaknya oli    = ")
     x= int(n)
     TotalAwalA = x * int(harga[idx])
 
     #Tahap menghitung diskon
     #mendapatkan diskon ketika pembelian bernilai < 200.000 = 5%
-    TotalMinimalSebelumppn = 200000 
-    if TotalAwalA <= TotalMinimalSebelumppn : 
-        TotalAwalB = TotalAwalA - TotalAwalA*5/100
+    TotalMinimaldapatdiskon = 200000 
+    
+
+    if TotalAwalA <= TotalMinimaldapatdiskon : 
+        diskon = TotalAwalA*5/100
+        TotalAwalB = TotalAwalA - diskon
     else:
+        diskon = 0
         TotalAwalB = TotalAwalA
 
-    #TotalBiaya Dengan PPN 1%
-    TotalAkhir = TotalAwalB + TotalAwalB*1/100
+    #PPN 1%
+    ppn = TotalAwalB*1/100
+    #Total dengan PPN
+    TotalAkhir = TotalAwalB + ppn
 
     #tampilkan Total Biaya
-    print(">>>> Total Akhir     = Rp. " + str(TotalAkhir))
+    print(">>>> Harga Jual              = Rp. " + str(TotalAwalA))
+    print(">>>> Diskon                  = Rp. " + str(diskon))
+    print(">>>> PPN                     = Rp. " + str(ppn))
+    print(">>>> Total Bayar             = Rp. " + str(TotalAkhir))
     print(" ")
     print("==============================================")
     jwb = input(">> Mau mengulangi ? y/t = ")
